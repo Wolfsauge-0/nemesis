@@ -13,12 +13,12 @@
     return left.getValue() < right.getValue();  
   }
 
-  Element* Element::getNextElement(Element* currentElement){
-    return currentElement->nextElement;
+  Element* Element::getNextElement(){
+    return this->nextElement;
   }
 
-  Element* Element::getPreviousElement(Element* currentElement){
-    return currentElement->previousElement;
+  Element* Element::getPreviousElement(){
+    return this->previousElement;
   }
 
   int Element::getValue() const{

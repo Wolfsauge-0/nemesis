@@ -2,7 +2,16 @@
 
 #define LISTT_H
 
+//
+// Standard Libs
+//
+
 #include <string>
+#include <iostream>
+
+//
+// Custom Libs
+//
 #include <Element.hpp>
 
 class List{
@@ -10,9 +19,7 @@ public:
   List();
   int addElement(int value);
   int deleteElement();
-  int getElement();
-  friend std::ostream& operator<<(std::ostream &, const List& list);
-  // std::string to_string();
+  friend std::ostream& operator<<(std::ostream& os, const List& list);
 private:
   Element* firstElement;
 };

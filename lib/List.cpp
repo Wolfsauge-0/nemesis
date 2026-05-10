@@ -14,9 +14,9 @@ List::List(){
 }
 
 int List::addElement(int value){
-  if (firstElement==NULL){
+  if ( firstElement == NULL ){
     Element temp(value, NULL, NULL);
-    firstElement=(& temp);
+    firstElement = &temp;
   }
   else{
 
@@ -31,7 +31,25 @@ int List::deleteElement(){
   return 0;
 }
 
-int List::getElement(){
-  std::cout << "returning queried Element" << std::endl;
-  return 0;
+
+//
+// Operators
+//
+std::ostream& operator<<(std::ostream& os, const List& list){
+  std::string outputStr = "";
+  Element* currentElement=list.firstElement;
+  outputStr = "[";
+  if ( currentElement != NULL){
+    do {
+      outputStr = outputStr + " " + std::to_string(currentElement->getValue());
+      if ( currentElement->getNextElement() != NULL ){
+        outputStr = outputStr + ",";
+      }
+      currentElement=currentElement->getNextElement();
+    } while ( currentElement != NULL );
+    
+  }
+  outputStr += " ]"; 
+  os << outputStr;
+  return os;
 }

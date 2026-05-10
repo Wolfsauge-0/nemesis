@@ -8,22 +8,40 @@ target_sources( list
     main.cpp
 )
 
-add_library(ListTools)
+add_library(List)
 
-target_sources(ListTools
+target_sources(List
   PRIVATE
-    ListTools/ListTools.cpp
+    lib/List.cpp
   PUBLIC
     FILE_SET HEADERS
     BASE_DIRS
-      ListTools
+      lib
     FILES
-      ListTools/ListTools.hpp    
+      lib/List.hpp
+)
+
+add_library(Element)
+
+target_sources(Element
+  PRIVATE
+    lib/Element.cpp
+  PUBLIC
+    FILE_SET HEADERS
+    BASE_DIRS
+      lib
+    FILES
+      lib/Element.hpp
 )
 
 target_link_libraries(list
   PRIVATE
-    ListTools
+    List
+)
+
+target_link_libraries(list
+  PRIVATE
+    Element
 )
 
 enable_testing()
